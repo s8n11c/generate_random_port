@@ -58,7 +58,7 @@ if [[ $mapping_existed -eq 1 ]] && [[ $action == 'ADD' ]]; then
     exit 1;
 fi
 
-if [[ $mapping_existed -eq 0 ]] && [[ $action -eq 'ADD' ]; then
+if [[ $mapping_existed -eq 0 ]] && [[ $action -eq 'ADD' ]]; then
     # generate new port
     port="$(generate_port)"
     echo "$port"
