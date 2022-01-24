@@ -44,7 +44,7 @@ if [[ $mapping_existed -eq 1 ]] && [[ $action == 'ADD' ]]; then
         if [[ $line == *"$branch_name"* ]]; then
             # echo the port number 
             echo $line | awk '{print $2}'
-            exit 1;
+            exit 0;
         fi
     done < $MAP_LOCATION
 
@@ -55,7 +55,7 @@ if [[ $mapping_existed -eq 1 ]] && [[ $action == 'ADD' ]]; then
     echo "$port"
     # write to mapping file
     echo "$branch_name $port" >> $MAP_LOCATION
-    exit 1;
+    exit 0;
 fi
 
 if [[ $mapping_existed -eq 0 ]] && [[ $action -eq 'ADD' ]]; then
@@ -64,7 +64,7 @@ if [[ $mapping_existed -eq 0 ]] && [[ $action -eq 'ADD' ]]; then
     echo "$port"
     # write to mapping file
     echo "$branch_name $port" >> $MAP_LOCATION
-    exit 1;
+    exit 0;
 fi  
 
 
@@ -74,5 +74,5 @@ if [[ $mapping_existed -eq 1 ]] && [[ $action -eq 'DEL' ]]; then
 
     echo "removing"
     sed -i "/$branch_name/d" $MAP_LOCATION
-    exit 1;
+    exit 0;
 fi  
